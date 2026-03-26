@@ -45,18 +45,13 @@ export default function AboutPage() {
       
       {/* Hero */}
       <section className="relative h-[500px] md:h-[600px] flex flex-col items-center justify-center pt-20">
-        <div
-          className="absolute inset-0 flex items-center justify-center text-center ken-burns-zoom"
-          style={{
-            backgroundColor: '#C4A882',
-            fontFamily: 'Inter, sans-serif',
-            fontSize: '13px',
-            fontStyle: 'italic',
-            color: '#6B5240',
-            zIndex: 0,
-          }}
-        >
-          [Photo: Tourists laughing and watching wildlife from open jeep roof]
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/ostrich-wildlife.webp"
+            alt="Danil Scenic Tours"
+            fill
+            className="object-cover"
+          />
         </div>
         <div
           className="absolute inset-0"

@@ -10,17 +10,17 @@ import AccessibilityToolbar from '@/components/accessibility-toolbar'
 import { ArrowRight } from 'lucide-react'
 
 const heroSlideImages = [
-  '/images/impala-herd.webp',
-  '/images/leopard-cub.webp',
-  '/images/crowned-crane.webp',
+  '/images/buffalo-savanna.webp',
+  '/images/rhinos-waterhole.webp',
+  '/images/ostrich-wildlife.webp',
 ]
 
 const destinations = [
   {
     name: 'Maasai Mara National Reserve',
     description: 'Kenya\'s most iconic reserve. Home to the Big Five, big cats, and the annual Great Wildebeest Migration (July–October).',
-    image: '[Photo: Maasai Mara savannah at golden hour — wide open plains, acacia trees, warm light]',
-    isPlaceholder: true,
+    image: '/images/buffalo-savanna.webp',
+    isPlaceholder: false,
   },
   {
     name: 'Amboseli National Park',
@@ -31,50 +31,50 @@ const destinations = [
   {
     name: 'Tsavo East & West National Parks',
     description: 'Kenya\'s largest wilderness. Dramatic landscapes, red-dusted elephants, and diverse wildlife.',
-    image: '[Photo: Leopard resting in tree, Tsavo National Park]',
-    isPlaceholder: true,
+    image: '/images/buffalo-savanna.webp',
+    isPlaceholder: false,
   },
   {
     name: 'Lake Nakuru National Park',
     description: 'Rift Valley gem renowned for its flamingo colonies, rhinos, and leopards.',
-    image: '[Photo: Flamingos in flight over Lake Nakuru, pink sky reflection]',
-    isPlaceholder: true,
+    image: '/images/rhinos-waterhole.webp',
+    isPlaceholder: false,
   },
   {
     name: 'Lake Bogoria National Reserve',
     description: 'Hot springs, geysers, and vast flamingo colonies on a striking soda lake.',
-    image: '[Photo: Lake Bogoria hot springs and flamingo colony]',
-    isPlaceholder: true,
+    image: '/images/ostrich-wildlife.webp',
+    isPlaceholder: false,
   },
   {
     name: 'Aberdare National Park',
     description: 'Dense highland forests with waterfalls, mountain streams, and dense vegetation.',
-    image: '[Photo: Aberdare National Park highland waterfalls and forest]',
-    isPlaceholder: true,
+    image: '/images/rhinos-waterhole.webp',
+    isPlaceholder: false,
   },
   {
     name: 'Mt. Kenya',
     description: 'Kenya\'s second-highest mountain. Dramatic clouds, verdant slopes, and alpine trails.',
-    image: '[Photo: Mt. Kenya highland peak — dramatic clouds, greenery]',
-    isPlaceholder: true,
+    image: '/images/buffalo-savanna.webp',
+    isPlaceholder: false,
   },
   {
     name: 'Meru National Park',
     description: 'Remote wilderness featuring the Big Five, dramatic rocky outcrops, and pristine landscapes.',
-    image: '[Photo: Meru National Park remote wilderness at dusk]',
-    isPlaceholder: true,
+    image: '/images/ostrich-wildlife.webp',
+    isPlaceholder: false,
   },
   {
     name: 'Samburu National Reserve',
     description: 'Semi-arid landscape home to reticulated giraffes and other unique species.',
-    image: '[Photo: Samburu landscape — reticulated giraffe against dry acacia brush]',
-    isPlaceholder: true,
+    image: '/images/buffalo-savanna.webp',
+    isPlaceholder: false,
   },
   {
     name: 'Diani Beach',
     description: 'Pristine white sand coastline along the Indian Ocean. Perfect for snorkelling, diving, and relaxation.',
-    image: '[Photo: Diani Beach — white sand, turquoise Indian Ocean, palm trees]',
-    isPlaceholder: true,
+    image: '/images/beach-diving.webp',
+    isPlaceholder: false,
   },
 ]
 

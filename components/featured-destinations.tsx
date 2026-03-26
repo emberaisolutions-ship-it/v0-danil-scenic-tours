@@ -8,8 +8,8 @@ const destinations = [
   {
     name: 'Maasai Mara',
     description: 'Kenya\'s most iconic reserve with the Big Five and Great Wildebeest Migration.',
-    image: '[Photo: Maasai Mara savannah at golden hour — wide open plains, acacia trees, warm light]',
-    isPlaceholder: true,
+    image: '/images/buffalo-savanna.webp',
+    isPlaceholder: false,
   },
   {
     name: 'Amboseli',
@@ -20,8 +20,8 @@ const destinations = [
   {
     name: 'Lake Nakuru',
     description: 'Rift Valley gem renowned for flamingo colonies, rhinos, and leopards.',
-    image: '[Photo: Flamingos in flight over Lake Nakuru, pink sky reflection]',
-    isPlaceholder: true,
+    image: '/images/rhinos-waterhole.webp',
+    isPlaceholder: false,
   },
 ]
 
