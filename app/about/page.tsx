@@ -1,5 +1,6 @@
 'use client'
 
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import Navbar from '@/components/navbar'
@@ -7,6 +8,14 @@ import Footer from '@/components/footer'
 import FloatingButtons from '@/components/floating-buttons'
 import AccessibilityToolbar from '@/components/accessibility-toolbar'
 import { Star } from 'lucide-react'
+
+const heroSlideImages = [
+  '/images/cheetah-resting.webp',
+  '/images/rhinos-waterhole.webp',
+  '/images/impala-herd.webp',
+  '/images/leopard-cub.webp',
+  '/images/crowned-crane.webp',
+]
 
 const allTestimonials = [
   {
@@ -40,18 +49,40 @@ const allTestimonials = [
 ]
 
 export default function AboutPage() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % heroSlideImages.length)
+    }, 5000)
+    return () => clearInterval(interval)
+  }, [])
+
   return (
     <main className="min-h-screen bg-[#FAF4E8]">
       <Navbar />
       
       {/* Hero */}
       <section className="relative h-[500px] md:h-[600px] flex flex-col items-center justify-center pt-20 overflow-hidden">
-        <Image
-          src="/images/ostrich-wildlife.webp"
-          alt="Danil Scenic Tours"
-          fill
-          className="object-cover absolute inset-0 z-0"
-        />
+        <div className="absolute inset-0 z-0">
+          {heroSlideImages.map((image, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 transition-opacity duration-1000 ${
+                index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+              }`}
+            >
+              <Image
+                src={image}
+                alt="Kenya wildlife"
+                fill
+                className="object-cover"
+                priority={index === 0}
+                loading={index === 0 ? 'eager' : 'lazy'}
+              />
+            </div>
+          ))}
+        </div>
         <div
           className="absolute inset-0 z-1"
           style={{

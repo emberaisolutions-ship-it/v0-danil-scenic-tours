@@ -79,13 +79,13 @@ export default function GalleryPage() {
       {/* Gallery Grid */}
       <section className="py-20 px-4 bg-[#FAF4E8]">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {galleryImages.map((item, index) => (
               <div
                 key={index}
                 className="rounded-2xl overflow-hidden shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
                 style={{
-                  aspectRatio: '3/2',
+                  aspectRatio: '4/3',
                   position: 'relative',
                 }}
               >
@@ -102,7 +102,7 @@ export default function GalleryPage() {
                     src={item.image}
                     alt="Gallery image"
                     fill
-                    className="object-cover"
+                    className={item.image.includes('ostrich') ? 'object-contain' : 'object-cover'}
                   />
                 )}
               </div>
