@@ -10,7 +10,7 @@ import AccessibilityToolbar from '@/components/accessibility-toolbar'
 import { ArrowRight } from 'lucide-react'
 
 const heroSlideImages = [
-  '/images/buffalo-savanna.webp',
+  '/images/cheetah-resting.webp',
   '/images/rhinos-waterhole.webp',
   '/images/ostrich-wildlife.webp',
 ]
@@ -31,7 +31,7 @@ const destinations = [
   {
     name: 'Tsavo East & West National Parks',
     description: 'Kenya\'s largest wilderness. Dramatic landscapes, red-dusted elephants, and diverse wildlife.',
-    image: '/images/buffalo-savanna.webp',
+    image: '/images/cheetah-resting.webp',
     isPlaceholder: false,
   },
   {

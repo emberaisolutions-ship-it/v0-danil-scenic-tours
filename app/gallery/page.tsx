@@ -8,9 +8,9 @@ import FloatingButtons from '@/components/floating-buttons'
 import AccessibilityToolbar from '@/components/accessibility-toolbar'
 
 const heroSlideImages = [
-  '/images/elephant-kilimanjaro.webp',
-  '/images/amboseli-elephants.webp',
   '/images/zebras-savanna.webp',
+  '/images/rhinos-waterhole.webp',
+  '/images/cheetah-resting.webp',
 ]
 
 const galleryImages = [

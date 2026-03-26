@@ -10,9 +10,9 @@ import AccessibilityToolbar from '@/components/accessibility-toolbar'
 import { ArrowRight } from 'lucide-react'
 
 const heroSlideImages = [
-  '/images/elephant-kilimanjaro.webp',
-  '/images/amboseli-elephants.webp',
   '/images/cheetah-resting.webp',
+  '/images/rhinos-waterhole.webp',
+  '/images/impala-herd.webp',
 ]
 
 const mainPackages = [
@@ -21,7 +21,7 @@ const mainPackages = [
     duration: '4 Days',
     price: '$1,599',
     focus: 'The Great Migration, Big Five, and Maasai Cultural visits.',
-    image: '/images/elephant-kilimanjaro.webp',
+    image: '/images/zebras-savanna.webp',
   },
   {
     title: 'Cultural Exploration in Samburu',
