@@ -41,7 +41,7 @@ export default function Hero() {
               fill
               className="object-cover"
               priority={index === 0}
-              loading="eager"
+              loading={index === 0 ? "eager" : "lazy"}
             />
           </div>
         ))}

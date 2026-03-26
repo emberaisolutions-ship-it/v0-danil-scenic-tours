@@ -20,8 +20,8 @@ const services = [
   {
     title: 'Adventure Safaris',
     description: 'Hiking, biking, and hot air ballooning for the thrill-seeker.',
-    image: '/images/hot-air-balloon-sunrise.webp',
-    isPlaceholder: false,
+    image: '[Photo: Hot air balloon at sunrise over Maasai Mara, golden mist below]',
+    isPlaceholder: true,
   },
   {
     title: 'Beach Escapes',
@@ -46,14 +46,25 @@ export default function ServicesGrid() {
               className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
             >
               {/* Image */}
-              {service.isPlaceholder || !service.image ? (
+              {service.isPlaceholder ? (
                 <div
                   style={{
-                    backgroundColor: '#E8DCC5',
+                    backgroundColor: '#C4A882',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
                     aspectRatio: '4/3',
                     width: '100%',
+                    fontFamily: 'Inter, sans-serif',
+                    fontSize: '13px',
+                    fontStyle: 'italic',
+                    color: '#6B5240',
+                    textAlign: 'center',
+                    padding: '16px',
                   }}
-                />
+                >
+                  {service.image}
+                </div>
               ) : (
                 <div className="relative w-full" style={{ aspectRatio: '4/3' }}>
                   <Image
