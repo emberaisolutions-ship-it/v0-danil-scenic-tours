@@ -15,51 +15,61 @@ const heroSlideImages = [
   '/images/cheetah-resting.webp',
 ]
 
-const services = [
+const mainPackages = [
   {
-    title: 'Safari Tours',
-    tag: 'Safari Tours',
-    description: 'Guided game drives through Kenya\'s greatest national parks in our 4x4 pop-up roof jeeps. Witness the Big Five in their natural habitat.',
-    details: 'Parks: Maasai Mara · Amboseli · Tsavo East & West · Lake Nakuru · Lake Bogoria · Aberdare · Mt. Kenya · Meru · Samburu\nAvailable as: Private or Group | From $128/person/day (excl. international flights)',
+    title: 'Masai Mara Exploration',
+    duration: '4 Days',
+    price: '$1,599',
+    focus: 'The Great Migration, Big Five, and Maasai Cultural visits.',
     image: '/images/elephant-kilimanjaro.webp',
-    isPlaceholder: false,
   },
   {
-    title: 'Cultural Expeditions',
-    tag: 'Cultural',
-    description: 'Immerse yourself in Kenya\'s vibrant traditions and daily life. Meet local communities, learn their customs, and savour authentic cuisine — including Kalenjin mursik and Gikuyu githeri.',
-    details: 'Available as: Private or Group',
+    title: 'Cultural Exploration in Samburu',
+    duration: '7 Days',
+    price: '$2,099',
+    focus: 'Northern Frontier wildlife (Special Five) and authentic Samburu traditions.',
     image: '/images/cultural-gathering.webp',
-    isPlaceholder: false,
   },
   {
-    title: 'Adventure Safaris',
-    tag: 'Adventure',
-    description: 'For thrill-seekers: hiking, biking, and hot air ballooning across Kenya\'s most spectacular terrain.',
-    details: 'Available as: Private or Group',
-    image: '[Photo: Hot air balloon at sunrise over Maasai Mara, golden mist below]',
-    isPlaceholder: true,
-  },
-  {
-    title: 'Beach Escapes',
-    tag: 'Beach',
-    description: 'Unwind on the pristine shores of Kenya\'s Indian Ocean coast — Diani, Watamu, or Malindi. Relax in luxury beach resorts and explore marine life through snorkelling and diving.',
-    details: 'Available as: Private or customized',
-    image: '/images/beach-diving.webp',
-    isPlaceholder: false,
-  },
-  {
-    title: 'Customized Safaris',
-    tag: 'All',
-    description: 'Fully tailor-made itineraries built around your interests, group size, timeline, and budget — whether you\'re travelling solo, as a family, with friends, or on honeymoon.',
-    details: 'Available as: Fully private and personalized',
+    title: 'Adventure Safari - Great Rift Valley',
+    duration: '6 Days',
+    price: '$1,899',
+    focus: 'Hiking, biking, and Rift Valley lakes (Naivasha/Nakuru).',
     image: '/images/zebras-savanna.webp',
-    isPlaceholder: false,
+  },
+  {
+    title: 'Kenyan Coastal Retreat',
+    duration: '5 Days',
+    price: '$1,799',
+    focus: 'Diani Beach, marine life, and Swahili culture.',
+    image: '/images/beach-diving.webp',
+  },
+]
+
+const featuredExpeditions = [
+  {
+    title: 'The Grand Safari',
+    duration: '14 Days',
+    price: '$3,087',
+  },
+  {
+    title: 'Southern Parks & Coast',
+    duration: '10 Days',
+    price: '$2,203',
+  },
+  {
+    title: 'Big Five Special',
+    duration: '8 Days',
+    price: '$2,035',
+  },
+  {
+    title: 'Amboseli Elephant Watching',
+    duration: '4 Days',
+    price: '$706',
   },
 ]
 
 export default function SafarisPage() {
-  const [selectedFilter, setSelectedFilter] = useState('All')
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
   useEffect(() => {
@@ -68,12 +78,6 @@ export default function SafarisPage() {
     }, 5000)
     return () => clearInterval(interval)
   }, [])
-
-  const filters = ['All', 'Safari Tours', 'Cultural', 'Adventure', 'Beach']
-
-  const filteredServices = selectedFilter === 'All'
-    ? services
-    : services.filter((s) => s.tag === selectedFilter)
 
   return (
     <main className="min-h-screen bg-[#FAF4E8]">
@@ -117,99 +121,126 @@ export default function SafarisPage() {
         </div>
       </section>
 
-      {/* Filter Bar */}
-      <section className="py-12 px-4 bg-[#F2E8D5]">
+      {/* Seasonality Note */}
+      <section className="py-8 px-4 bg-[#F2E8D5]">
+        <div className="max-w-7xl mx-auto text-center">
+          <h2 className="text-2xl font-playfair text-[#2A4A35] mb-2">Safari Packages</h2>
+          <p className="text-[#1C1208] font-inter text-sm md:text-base">
+            Rates are indicative per person sharing and vary by season (Peak/Low) and group size. All packages include 4x4 transport, expert guides, and full-board accommodation.
+          </p>
+        </div>
+      </section>
+
+      {/* Main Packages Grid */}
+      <section className="py-20 px-4 bg-[#FAF4E8]">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-wrap gap-3 justify-center">
-            {filters.map((filter) => (
-              <button
-                key={filter}
-                onClick={() => setSelectedFilter(filter)}
-                className={`px-6 py-2 rounded-full font-montserrat font-semibold transition-colors ${
-                  selectedFilter === filter
-                    ? 'bg-[#D4870A] text-white'
-                    : 'bg-white text-[#2A4A35] hover:bg-[#E8DCC5]'
-                }`}
-              >
-                {filter}
-              </button>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {mainPackages.map((pkg, index) => (
+              <div key={index} className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                {/* Image */}
+                <div className="relative w-full" style={{ aspectRatio: '4/3' }}>
+                  <Image
+                    src={pkg.image}
+                    alt={pkg.title}
+                    fill
+                    className="object-cover"
+                  />
+                  {/* Pricing Badge */}
+                  <div className="absolute top-4 right-4 bg-[#D4870A] text-white px-4 py-2 rounded-lg font-montserrat font-semibold text-sm">
+                    from {pkg.price}
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="p-6 space-y-4">
+                  <div>
+                    <p className="text-[#D4870A] font-montserrat font-semibold text-sm mb-1">{pkg.duration}</p>
+                    <h3 className="text-2xl font-playfair text-[#2A4A35]">
+                      {pkg.title}
+                    </h3>
+                  </div>
+                  <p className="text-[#1C1208] font-inter leading-relaxed">
+                    {pkg.focus}
+                  </p>
+                  <Link
+                    href="/book"
+                    className="inline-flex items-center gap-2 text-[#D4870A] font-montserrat font-semibold hover:gap-3 transition-all"
+                  >
+                    Learn More <ArrowRight size={16} />
+                  </Link>
+                </div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Services */}
-      <section className="py-20 px-4 bg-[#FAF4E8]">
-        <div className="max-w-7xl mx-auto space-y-12">
-          {filteredServices.map((service, index) => (
-            <div key={index} className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-white rounded-2xl overflow-hidden shadow-lg">
-              {/* Image */}
-              {service.isPlaceholder ? (
-                <div
-                  style={{
-                    backgroundColor: '#C4A882',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    aspectRatio: '4/3',
-                    fontFamily: 'Inter, sans-serif',
-                    fontSize: '13px',
-                    fontStyle: 'italic',
-                    color: '#6B5240',
-                    textAlign: 'center',
-                    padding: '16px',
-                  }}
-                >
-                  {service.image}
-                </div>
-              ) : (
-                <div className="relative w-full" style={{ aspectRatio: '4/3' }}>
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              )}
-
-              {/* Content */}
-              <div className="p-8 space-y-4">
-                <h2 className="text-3xl font-playfair text-[#2A4A35]">
-                  {service.title}
-                </h2>
-                <p className="text-[#1C1208] font-inter leading-relaxed">
-                  {service.description}
-                </p>
-                <div className="text-sm text-[#1C1208] font-inter whitespace-pre-line opacity-90">
-                  {service.details}
+      {/* Featured Expeditions */}
+      <section className="py-20 px-4 bg-[#F2E8D5]">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-playfair text-[#2A4A35] mb-4">Featured Expeditions</h2>
+            <p className="text-[#1C1208] font-inter max-w-2xl mx-auto">
+              Longer stays for a deeper connection with Kenya's wild landscapes and cultures
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {featuredExpeditions.map((exp, index) => (
+              <div key={index} className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow text-center">
+                <p className="text-[#D4870A] font-montserrat font-semibold text-sm mb-2">{exp.duration}</p>
+                <h3 className="text-xl font-playfair text-[#2A4A35] mb-4">
+                  {exp.title}
+                </h3>
+                <div className="bg-[#FAF4E8] rounded-lg p-3 mb-4">
+                  <p className="text-[#D4870A] font-montserrat font-bold text-lg">{exp.price} pp</p>
                 </div>
                 <Link
                   href="/book"
-                  className="inline-flex items-center gap-2 text-[#D4870A] font-montserrat font-semibold hover:gap-3 transition-all"
+                  className="inline-block text-[#D4870A] font-montserrat font-semibold text-sm hover:text-[#2A4A35] transition-colors"
                 >
-                  Inquire About This {service.tag === 'All' ? 'Safari' : service.tag} <ArrowRight size={16} />
+                  Inquire →
                 </Link>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Pricing Transparency */}
+      {/* Custom Safari */}
+      <section className="py-20 px-4 bg-[#FAF4E8]">
+        <div className="max-w-3xl mx-auto bg-white rounded-2xl p-12 text-center shadow-lg">
+          <h2 className="text-4xl font-playfair text-[#2A4A35] mb-4">
+            Custom Safari Adventure
+          </h2>
+          <p className="text-[#1C1208] font-inter text-lg mb-8 leading-relaxed">
+            Can't find exactly what you're looking for? We'll design a bespoke safari experience tailored to your interests, group size, timeline, and budget.
+          </p>
+          <div className="bg-[#F2E8D5] rounded-lg p-4 mb-8">
+            <p className="text-[#D4870A] font-montserrat font-bold text-xl">Bespoke Pricing</p>
+          </div>
+          <Link
+            href="/book"
+            className="inline-block px-8 py-3 bg-[#D4870A] text-white font-montserrat font-semibold rounded-lg hover:shadow-lg transition-all"
+          >
+            Request Custom Proposal
+          </Link>
+        </div>
+      </section>
+
+      {/* Tour Rates */}
       <section className="py-16 px-4 bg-[#F2E8D5]">
         <div className="max-w-3xl mx-auto text-center space-y-6">
           <h2 className="text-4xl font-playfair text-[#2A4A35]">
-            Honest Pricing. No Surprises.
+            Tour Rates
           </h2>
           <p className="text-lg text-[#1C1208] font-inter leading-relaxed">
-            Our tours range from $128 to $420 per person per day (USD), excluding international flights. Your final quote depends on the park, duration, accommodation level, and group size. Contact us for a custom quote — it's free and there's no commitment.
+            The above packages are per person, sharing basis. Rates vary by season (Peak/Low) and group size. All quoted prices include expert guides, 4x4 transport, and full-board accommodation. For a detailed quote matching your travel dates and preferences, contact us today—it's free and there's no commitment.
           </p>
           <Link
             href="/book"
-            className="inline-block px-8 py-3 bg-[#D4870A] text-[#1C1208] font-montserrat font-semibold rounded-lg hover:shadow-lg transition-all pulse-glow"
+            className="inline-block px-8 py-3 bg-[#D4870A] text-white font-montserrat font-semibold rounded-lg hover:shadow-lg transition-all"
           >
-            Request a Free Quote
+            Get Your Custom Quote
           </Link>
         </div>
       </section>
