@@ -30,7 +30,7 @@ export default function GalleryPage() {
       <Navbar />
       
       {/* Hero */}
-      <section className="relative h-96 flex flex-col items-center justify-center pt-20">
+      <section className="relative h-[500px] md:h-[600px] flex flex-col items-center justify-center pt-20">
         <div
           className="absolute inset-0 flex items-center justify-center text-center ken-burns-zoom"
           style={{

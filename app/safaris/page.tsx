@@ -80,7 +80,7 @@ export default function SafarisPage() {
       <Navbar />
       
       {/* Hero with Slideshow */}
-      <section className="relative h-96 flex flex-col items-center justify-center pt-20">
+      <section className="relative h-[500px] md:h-[600px] flex flex-col items-center justify-center pt-20">
         <div className="absolute inset-0 z-0">
           {heroSlideImages.map((image, index) => (
             <div
