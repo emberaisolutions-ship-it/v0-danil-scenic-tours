@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 export default function FinalCTABanner() {
   return (
-    <section className="relative overflow-hidden py-24 px-4">
+    <section className="relative overflow-hidden py-32 px-4 min-h-[500px] flex items-center">
       {/* Background Image */}
       <div className="absolute inset-0 ken-burns-zoom" style={{ zIndex: 0 }}>
         <Image
