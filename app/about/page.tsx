@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import Navbar from '@/components/navbar'
 import Footer from '@/components/footer'
@@ -44,20 +45,17 @@ export default function AboutPage() {
       <Navbar />
       
       {/* Hero */}
-      <section className="relative h-[500px] md:h-[600px] flex flex-col items-center justify-center pt-20">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/ostrich-wildlife.webp"
-            alt="Danil Scenic Tours"
-            fill
-            className="object-cover"
-          />
-        </div>
+      <section className="relative h-[500px] md:h-[600px] flex flex-col items-center justify-center pt-20 overflow-hidden">
+        <Image
+          src="/images/ostrich-wildlife.webp"
+          alt="Danil Scenic Tours"
+          fill
+          className="object-cover absolute inset-0 z-0"
+        />
         <div
-          className="absolute inset-0"
+          className="absolute inset-0 z-1"
           style={{
             background: 'linear-gradient(135deg, rgba(28,18,8,0.72) 0%, rgba(28,18,8,0.2) 100%)',
-            zIndex: 1,
           }}
         />
         <div className="relative z-10 text-center px-4">

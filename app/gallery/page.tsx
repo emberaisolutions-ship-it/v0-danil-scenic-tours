@@ -1,48 +1,63 @@
 'use client'
 
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Navbar from '@/components/navbar'
 import Footer from '@/components/footer'
 import FloatingButtons from '@/components/floating-buttons'
 import AccessibilityToolbar from '@/components/accessibility-toolbar'
 
+const heroSlideImages = [
+  '/images/elephant-kilimanjaro.webp',
+  '/images/amboseli-elephants.webp',
+  '/images/zebras-savanna.webp',
+]
+
 const galleryImages = [
   { image: '/images/elephant-kilimanjaro.webp', isPlaceholder: false },
   { image: '/images/amboseli-elephants.webp', isPlaceholder: false },
-  { image: '/images/buffalo-savanna.webp', isPlaceholder: false },
+  { image: '/images/zebras-savanna.webp', isPlaceholder: false },
   { image: '/images/rhinos-waterhole.webp', isPlaceholder: false },
   { image: '/images/ostrich-wildlife.webp', isPlaceholder: false },
   { image: '/images/beach-diving.webp', isPlaceholder: false },
-  { image: '/images/cheetah-resting.webp', isPlaceholder: false },
   { image: '/images/cultural-gathering.webp', isPlaceholder: false },
-  { image: '/images/leopard-cub.webp', isPlaceholder: false },
   { image: '/images/impala-herd.webp', isPlaceholder: false },
   { image: '/images/crowned-crane.webp', isPlaceholder: false },
-  { image: '/images/zebras-savanna.webp', isPlaceholder: false },
-  { image: '/images/elephant-kilimanjaro.webp', isPlaceholder: false },
-  { image: '/images/amboseli-elephants.webp', isPlaceholder: false },
-  { image: '/images/buffalo-savanna.webp', isPlaceholder: false },
 ]
 
 export default function GalleryPage() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % heroSlideImages.length)
+    }, 5000)
+    return () => clearInterval(interval)
+  }, [])
+
   return (
     <main className="min-h-screen bg-[#FAF4E8]">
       <Navbar />
       
       {/* Hero */}
       <section className="relative h-[500px] md:h-[600px] flex flex-col items-center justify-center pt-20">
-        <div
-          className="absolute inset-0 flex items-center justify-center text-center ken-burns-zoom"
-          style={{
-            backgroundColor: '#C4A882',
-            fontFamily: 'Inter, sans-serif',
-            fontSize: '13px',
-            fontStyle: 'italic',
-            color: '#6B5240',
-            zIndex: 0,
-          }}
-        >
-          [Photo: Maasai Mara savannah at golden hour — wide open plains, acacia trees, warm light]
+        <div className="absolute inset-0 z-0">
+          {heroSlideImages.map((image, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 transition-opacity duration-1000 ${
+                index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+              }`}
+            >
+              <Image
+                src={image}
+                alt="Kenya"
+                fill
+                className="object-cover"
+                priority={index === 0}
+              />
+            </div>
+          ))}
         </div>
         <div
           className="absolute inset-0"
@@ -74,30 +89,14 @@ export default function GalleryPage() {
                   position: 'relative',
                 }}
               >
-                {item.isPlaceholder ? (
+                {item.isPlaceholder || !item.image ? (
                   <div
                     style={{
-                      backgroundColor: '#C4A882',
+                      backgroundColor: '#E8DCC5',
                       width: '100%',
                       height: '100%',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      padding: '16px',
                     }}
-                  >
-                    <p
-                      style={{
-                        fontFamily: 'Inter, sans-serif',
-                        fontSize: '13px',
-                        fontStyle: 'italic',
-                        color: '#6B5240',
-                        textAlign: 'center',
-                      }}
-                    >
-                      {item.image}
-                    </p>
-                  </div>
+                  />
                 ) : (
                   <Image
                     src={item.image}

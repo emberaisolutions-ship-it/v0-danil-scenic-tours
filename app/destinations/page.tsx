@@ -43,32 +43,32 @@ const destinations = [
   {
     name: 'Lake Bogoria National Reserve',
     description: 'Hot springs, geysers, and vast flamingo colonies on a striking soda lake.',
-    image: '/images/ostrich-wildlife.webp',
-    isPlaceholder: false,
+    image: '',
+    isPlaceholder: true,
   },
   {
     name: 'Aberdare National Park',
     description: 'Dense highland forests with waterfalls, mountain streams, and dense vegetation.',
-    image: '/images/rhinos-waterhole.webp',
-    isPlaceholder: false,
+    image: '',
+    isPlaceholder: true,
   },
   {
     name: 'Mt. Kenya',
     description: 'Kenya\'s second-highest mountain. Dramatic clouds, verdant slopes, and alpine trails.',
-    image: '/images/buffalo-savanna.webp',
-    isPlaceholder: false,
+    image: '',
+    isPlaceholder: true,
   },
   {
     name: 'Meru National Park',
     description: 'Remote wilderness featuring the Big Five, dramatic rocky outcrops, and pristine landscapes.',
-    image: '/images/ostrich-wildlife.webp',
-    isPlaceholder: false,
+    image: '',
+    isPlaceholder: true,
   },
   {
     name: 'Samburu National Reserve',
     description: 'Semi-arid landscape home to reticulated giraffes and other unique species.',
-    image: '/images/buffalo-savanna.webp',
-    isPlaceholder: false,
+    image: '',
+    isPlaceholder: true,
   },
   {
     name: 'Diani Beach',
@@ -140,24 +140,16 @@ export default function DestinationsPage() {
                 className="bg-white rounded-2xl overflow-hidden shadow-lg hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300"
               >
                 {/* Image */}
-                {dest.isPlaceholder ? (
+                {dest.isPlaceholder || !dest.image ? (
                   <div
                     style={{
-                      backgroundColor: '#C4A882',
+                      backgroundColor: '#E8DCC5',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
                       aspectRatio: '3/2',
-                      fontFamily: 'Inter, sans-serif',
-                      fontSize: '13px',
-                      fontStyle: 'italic',
-                      color: '#6B5240',
-                      textAlign: 'center',
-                      padding: '16px',
                     }}
-                  >
-                    {dest.image}
-                  </div>
+                  />
                 ) : (
                   <div className="relative w-full" style={{ aspectRatio: '3/2' }}>
                     <Image

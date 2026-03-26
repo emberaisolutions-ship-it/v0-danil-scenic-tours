@@ -8,7 +8,7 @@ const destinations = [
   {
     name: 'Maasai Mara',
     description: 'Kenya\'s most iconic reserve with the Big Five and Great Wildebeest Migration.',
-    image: '/images/buffalo-savanna.webp',
+    image: '/images/zebras-savanna.webp',
     isPlaceholder: false,
   },
   {
